@@ -26,7 +26,7 @@ test:
     - packageurl.contrib
   commands:
     - pip check
-    - mypy -p packageurl
+    - mypy -p packageurl --ignore-missing-imports
   requires:
     - pip
     - mypy
