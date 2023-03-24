@@ -1,4 +1,4 @@
-{% set version = "0.10.4" %}
+{% set version = "0.11.1" %}
 
 package:
   name: packageurl-python
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/p/packageurl-python/packageurl-python-{{ version }}.tar.gz
-  sha256: 5c91334f942cd55d45eb0c67dd339a535ef90e25f05b9ec016ad188ed0ef9048
+  sha256: bbcc53d2cb5920c815c1626c75992f319bfc450b73893fa7bd8aac5869aa49fe
 
 build:
   number: 0
@@ -16,9 +16,9 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python >=3.7
   run:
-    - python >=3.6
+    - python >=3.7
 
 test:
   imports:
@@ -26,8 +26,10 @@ test:
     - packageurl.contrib
   commands:
     - pip check
+    - mypy -p packageurl --ignore-missing-imports
   requires:
     - pip
+    - mypy
 
 about:
   home: https://github.com/package-url/packageurl-python
