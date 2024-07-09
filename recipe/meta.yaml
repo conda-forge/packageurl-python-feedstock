@@ -1,4 +1,4 @@
-{% set version = "0.15.2" %}
+{% set version = "0.15.3" %}
 
 package:
   name: packageurl-python
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/p/packageurl-python/packageurl_python-{{ version }}.tar.gz
-  sha256: 9cd10eeedbc6680728c10a1585c6dd7bbad4ef4b389d80cd0ac223205e9c87df
+  sha256: 82e1150f1fc228e25e7b3be1c641ef96b6a0811526c0b4e4f7882a181e862607
 
 build:
   number: 0
