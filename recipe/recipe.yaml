@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "0.17.1"
+  version: "0.17.2"
 
 package:
   name: packageurl-python
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/p/packageurl-python/packageurl_python-${{ version }}.tar.gz
-  sha256: 5db592a990b60bc02446033c50fb1803a26c5124cd72c5a2cd1b8ea1ae741969
+  sha256: dc087e3a3340656c6966a3d651f12c7f689f01dc9fb8a28f1150f7be823c688e
 
 build:
   number: 0
