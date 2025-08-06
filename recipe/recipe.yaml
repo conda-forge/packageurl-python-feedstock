@@ -3,6 +3,9 @@ schema_version: 1
 
 context:
   version: "0.17.4"
+  # TODO: fix after upstream fix
+  # https://github.com/package-url/packageurl-python/pull/201/files#r2257224277
+  use_mypy: "1"
 
 package:
   name: packageurl-python
@@ -35,12 +38,14 @@ tests:
       python_version:
         - ${{ python_min }}.*
         - 3.13.*
-  - requirements:
-      run:
-        - mypy
-        - python ${{ python_min }}.*
-    script:
-      - mypy -p packageurl --ignore-missing-imports
+  - if: use_mypy == "1"
+    then:
+      requirements:
+        run:
+          - mypy
+          - python ${{ python_min }}.*
+      script:
+        - mypy -p packageurl --ignore-missing-imports
 
 about:
   summary: A purl aka. Package URL parser and builder
