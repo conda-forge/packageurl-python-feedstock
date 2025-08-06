@@ -2,7 +2,10 @@
 schema_version: 1
 
 context:
-  version: "0.17.3"
+  version: "0.17.4"
+  # TODO: fix after upstream fix
+  # https://github.com/package-url/packageurl-python/pull/201/files#r2257224277
+  use_mypy: "0"
 
 package:
   name: packageurl-python
@@ -10,7 +13,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/p/packageurl-python/packageurl_python-${{ version }}.tar.gz
-  sha256: 719995f0c7f706890277ba57ec95afcaa9696c836a7675770a1279b01a41f7be
+  sha256: d31e23495dd33efe8e1f9ad98d97af69a21e49e751684864d77a35814254a861
 
 build:
   number: 0
@@ -35,12 +38,14 @@ tests:
       python_version:
         - ${{ python_min }}.*
         - 3.13.*
-  - requirements:
-      run:
-        - mypy
-        - python ${{ python_min }}.*
-    script:
-      - mypy -p packageurl --ignore-missing-imports
+  - if: use_mypy == "1"
+    then:
+      requirements:
+        run:
+          - mypy
+          - python ${{ python_min }}.*
+      script:
+        - mypy -p packageurl --ignore-missing-imports
 
 about:
   summary: A purl aka. Package URL parser and builder
