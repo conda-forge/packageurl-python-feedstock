@@ -5,7 +5,7 @@ context:
   version: "0.17.4"
   # TODO: fix after upstream fix
   # https://github.com/package-url/packageurl-python/pull/201/files#r2257224277
-  use_mypy: "1"
+  use_mypy: "0"
 
 package:
   name: packageurl-python
