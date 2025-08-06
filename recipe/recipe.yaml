@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "0.17.4"
+  version: "0.17.5"
   # TODO: fix after upstream fix
   # https://github.com/package-url/packageurl-python/pull/201/files#r2257224277
   use_mypy: "0"
@@ -13,7 +13,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/p/packageurl-python/packageurl_python-${{ version }}.tar.gz
-  sha256: d31e23495dd33efe8e1f9ad98d97af69a21e49e751684864d77a35814254a861
+  sha256: a7be3f3ba70d705f738ace9bf6124f31920245a49fa69d4b416da7037dd2de61
 
 build:
   number: 0
