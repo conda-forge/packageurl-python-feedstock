@@ -2,7 +2,8 @@
 schema_version: 1
 
 context:
-  version: "0.17.5"
+  version: "0.17.6"
+  python_check_max: "3.14"
   # TODO: fix after upstream fix
   # https://github.com/package-url/packageurl-python/pull/201/files#r2257224277
   use_mypy: "1"
@@ -13,7 +14,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/p/packageurl-python/packageurl_python-${{ version }}.tar.gz
-  sha256: a7be3f3ba70d705f738ace9bf6124f31920245a49fa69d4b416da7037dd2de61
+  sha256: 1252ce3a102372ca6f86eb968e16f9014c4ba511c5c37d95a7f023e2ca6e5c25
+  patches:
+    # TODO: remove after https://github.com/package-url/packageurl-python/pull/213
+    - 0000-fix-types.patch
 
 build:
   number: 0
@@ -37,7 +41,7 @@ tests:
       pip_check: true
       python_version:
         - ${{ python_min }}.*
-        - 3.13.*
+        - ${{ python_check_max }}.*
   - if: use_mypy == "1"
     then:
       requirements:
